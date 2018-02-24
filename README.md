@@ -8,6 +8,9 @@ As an extra step, write a program to encrypt messages so that you can share them
 
 The encryption is a Caesar cypher, with a key of +1 (all letters shifted up by one)
 
+We are writing a command-line program here, not a website, so we will need to
+use the [Node.js JavaScript runtime](https://nodejs.org/en/) to run our code.
+
 ## Caesar cypher
 The Caesar cypher is a simple encryption allegedly invented in roman times to conceal important informations [Wikipedia entry for the curious](https://en.wikipedia.org/wiki/Caesar_cipher).
 
