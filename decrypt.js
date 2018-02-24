@@ -25,22 +25,11 @@ function logReplyToConsole() {
   // implement
 }
 
-function writeToFile(decryptedMessage) {
-  // implement
-}
-
-function compareToPassPhrase(decryptedMessage) {
-  // implement
-
-  // no `return`, we want to either call logReplyToConsole or writeToFile depending on the message
-}
-
-
 // code to bring all the function together and execute the program.
 // You shouldn't need to modify this.
 
 // var encryptedMessage = readStringFromFile();
 // var decryptedMessage = decryptMessage(encryptedMessage);
 // compareToPassPhrase(decryptedMessage);
-
+//
 /* all done */
