@@ -1,7 +1,7 @@
 # Secret message decryption
 
 ## Overview
-In this exercise, you are given a message in a text file, `secret_message.txt`, which is encrypted. Write a program to decrypt it, save the decrypted phrase to a file called `solution.txt`. If the content of the message is equal to `today is sunny`, send a warning to the console instead.
+In this exercise, you are given a message in a text file, `secret_message.txt`, which is encrypted. Write a program to decrypt it, save the decrypted phrase to a file called `solution.txt`. If the content of the message is equal to `today is sunny`, send a warning to the console saying `No it's not.`
 
 The encryption is a Caesar cypher, with a key of +1 (all letters shifted up by one)
 
@@ -40,8 +40,54 @@ There are several advantages to such an approach:
 * The function does a single, simple, transformation, like filtering an array or transforming a string. Fewer steps == fewer places where an error could happen.
 * A single small function is easier to test on its own, to make sure the functionality is correct.
 * If the functionality is needed again, the piece of code can be reused quickly.
-* When new functionality is needed, it's easier to change few functions to achieve that rather than rewrite everything.
+* Several people can work on different pieces in parallel.
+
+Another upside is that it's easier to extend our program by changing few functions rather than rewrite everything from scratch. We could use the program to encrypt instead of decrypt, or use a different cypher, or send the result over a http connection to another computer, all with minimal additions and changes.
 
 
 ![Function Machine](https://codeyourfuture.github.io/syllabus-master/js-core-3/assets/function-diagram.png)
 > Function diagram stolen from the Syllabus, week 10.
+
+
+## Sample breakdown of the problem
+Here is a sample division in logic units of the Caesar cypher problem. Each step has been further divided in smaller operations needed for each function implementation.
+
+
+* Read a message from a file
+  - open a file on the local computer
+  - read the first line
+  - return the read line as a string
+
+
+* Decrypt a message
+  - accept a encrypted string
+  - transform the string into an array of characters
+  - map the array through the character decryption functions
+  - assemble the mapped array back to a single string
+  - return the decrypted string
+
+
+* Decrypt a character
+  - accept an encrypted character
+  - shift it by the right amount (+1 in this case)
+  - return the decrypted character
+
+
+* Compare to message to the given one
+  - accept a decrypted string
+  - compare it to the passphrase (`today is sunny` in this case)
+  - if equal, call the logging function
+  - if not, pass the value to the writing function
+
+
+* Logging function
+  - log to the console the required message, `No it's not.`
+
+
+* Writing function
+  - accept a string
+  - if not present, create a file called `solution.txt`
+  - write the given string to the file
+
+
+Again, notice how many functions are general purpose: the Compare to message does not necessarily require the input string to have been decrypted from a text file. Or again, we could change the Decrypt a character function to accept a second parameter and work with any amount of positive or negative shift.
