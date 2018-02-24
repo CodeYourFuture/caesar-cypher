@@ -54,7 +54,7 @@ Here is a sample division in logic units of the Caesar cypher problem. Each step
 
 
 * Read a message from a file
-  - open a file on the local computer
+  - open the file on the local computer
   - read the first line
   - return the read line as a string
 
