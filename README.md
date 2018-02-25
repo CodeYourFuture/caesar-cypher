@@ -1,9 +1,15 @@
 # Secret message decryption
 
 ## Overview
-In this exercise, you are given a message in a text file, `secret_message.txt`, which is encrypted. Write a program to decrypt it, save the decrypted phrase to a file called `solution.txt`. If the content of the message is equal to `today is sunny`, send a warning to the console saying `No it's not.`
+
+In this exercise, you are given a message in a text file, `secret_message.txt`, which is encrypted. Write a program to decrypt it and write the decrypted text to the console.
+
+As an extra step, write a program to encrypt messages so that you can share them in Slack without anyone being able to read them unless they have the decrypt program.
 
 The encryption is a Caesar cypher, with a key of +1 (all letters shifted up by one)
+
+We are writing a command-line program here, not a website, so we will need to
+use the [Node.js JavaScript runtime](https://nodejs.org/en/) to run our code.
 
 ## Caesar cypher
 The Caesar cypher is a simple encryption allegedly invented in roman times to conceal important informations [Wikipedia entry for the curious](https://en.wikipedia.org/wiki/Caesar_cipher).
@@ -73,21 +79,7 @@ Here is a sample division in logic units of the Caesar cypher problem. Each step
   - return the decrypted character
 
 
-* Compare to message to the given one
-  - accept a decrypted string
-  - compare it to the passphrase (`today is sunny` in this case)
-  - if equal, call the logging function
-  - if not, pass the value to the writing function
-
-
 * Logging function
-  - log to the console the required message, `No it's not.`
+  - log to the console the decrypted message
 
-
-* Writing function
-  - accept a string
-  - if not present, create a file called `solution.txt`
-  - write the given string to the file
-
-
-Again, notice how many functions are general purpose: the Compare to message does not necessarily require the input string to have been decrypted from a text file. Or again, we could change the Decrypt a character function to accept a second parameter and work with any amount of positive or negative shift.
+Notice how many functions are general purpose: for example, we could change the "Decrypt a character" function to accept a second parameter and work with any amount of positive or negative shift.
